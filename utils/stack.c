@@ -1,16 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: raferrei <raferrei@student.42porto.com>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/30 15:44:51 by raferrei          #+#    #+#             */
-/*   Updated: 2026/05/30 17:45:47 by raferrei         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 t_stack	*new_stack(int value)
 {
@@ -36,27 +24,33 @@ void	add_back(t_stack **stack, t_stack *new)
 		return ;
 	}
 	ptr = *stack;
-	while (ptr->next);
+	while (ptr->next)
 		ptr = ptr->next;
 	ptr->next = new;
 }
 
 t_stack	*stack_last(t_stack *stack)
 {
-	int	size;
-
-	size = 0;
-	while (stack)
-	{
-		size++;
+	if (!stack)
+		return (NULL);
+	while (stack->next)
 		stack = stack->next;
-	}
-	return (size);
+	return (stack);
+}
+
+t_stack	*stack_before_last(t_stack *stack)
+{
+	if (!stack || !stack->next)
+		return (NULL);
+	while (stack->next->next)
+		stack = stack->next;
+	return (stack);
 }
 
 void	stack_free(t_stack **stack)
 {
-	t_stack *ptr;
+	t_stack	*ptr;
+
 	while (*stack)
 	{
 		ptr = (*stack)->next;

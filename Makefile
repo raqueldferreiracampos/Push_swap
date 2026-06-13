@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: emda-sil <emda-sil@student.42porto.com>    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/05/29 11:37:24 by emda-sil          #+#    #+#              #
-#    Updated: 2026/05/29 13:07:03 by emda-sil         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = push_swap
 
 CC = cc
@@ -20,14 +8,31 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 SRC_DIR = src
 UTILS_DIR = utils
+PARSERS_DIR = parsers
 INC_DIR = includes
+OPERATIONS_DIR = operations
+ALGORITHM_DIR = algorithm
 
 SRCS = \
 	$(SRC_DIR)/main.c \
-	$(SRC_DIR)/parser.c \
-	$(SRC_DIR)/stack.c \
-	$(SRC_DIR)/error.c \
-	$(UTILS_DIR)/utils.c
+	$(PARSERS_DIR)/parser_args.c \
+	$(PARSERS_DIR)/parser_flags.c \
+	$(PARSERS_DIR)/parser_tokens.c \
+	$(PARSERS_DIR)/parser_input.c \
+	$(UTILS_DIR)/stack_map.c \
+	$(UTILS_DIR)/errors.c \
+	$(UTILS_DIR)/stack_builder.c \
+	$(UTILS_DIR)/stack.c \
+	$(UTILS_DIR)/utils_algorithm.c \
+	$(OPERATIONS_DIR)/push.c \
+	$(OPERATIONS_DIR)/rotate.c \
+	$(OPERATIONS_DIR)/rev_rotate.c \
+	$(OPERATIONS_DIR)/swap.c \
+	$(ALGORITHM_DIR)/simple.c \
+	$(ALGORITHM_DIR)/medium.c \
+	$(ALGORITHM_DIR)/adaptive.c \
+	$(ALGORITHM_DIR)/complex.c \
+	$(ALGORITHM_DIR)/tiny.c \
 
 OBJS = $(SRCS:.c=.o)
 
