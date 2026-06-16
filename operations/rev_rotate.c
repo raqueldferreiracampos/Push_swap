@@ -1,7 +1,17 @@
-#include "push_swap.h"
-//rra (reverse rotate a): Shift down all elements of stack a by one. The last element becomes the first one.
-//rrb (reverse rotate b): Shift down all elements of stack b by one. The last element becomes the first one.
-//rrr : rra and rrb at the same time.
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rev_rotate.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emda-sil <emda-sil@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/15 11:55:38 by emda-sil          #+#    #+#             */
+/*   Updated: 2026/06/15 11:55:38 by emda-sil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/push_swap.h"
+
 void	rev_rotate(t_stack **stack)
 {
 	t_stack	*tmp1;
@@ -18,6 +28,8 @@ void	rev_rotate(t_stack **stack)
 
 void	rev_rra(t_bench *bench, t_stack **a)
 {
+	if (!a || !*a || !(*a)->next)
+		return ;
 	rev_rotate(a);
 	write(1, "rra\n", 4);
 	if (bench != NULL)
@@ -26,6 +38,8 @@ void	rev_rra(t_bench *bench, t_stack **a)
 
 void	rev_rrb(t_bench *bench, t_stack **b)
 {
+	if (!b || !*b || !(*b)->next)
+		return ;
 	rev_rotate(b);
 	write(1, "rrb\n", 4);
 	if (bench != NULL)
@@ -34,6 +48,8 @@ void	rev_rrb(t_bench *bench, t_stack **b)
 
 void	rev_rrr(t_bench *bench, t_stack **a, t_stack **b)
 {
+	if ((!a || !*a || !(*a)->next) && (!b || !*b || !(*b)->next))
+		return ;
 	rev_rotate(a);
 	rev_rotate(b);
 	write(1, "rrr\n", 4);

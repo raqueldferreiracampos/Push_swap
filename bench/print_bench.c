@@ -1,11 +1,23 @@
-#include "../includes/push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_bench.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emda-sil <emda-sil@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/15 10:03:50 by emda-sil          #+#    #+#             */
+/*   Updated: 2026/06/15 10:03:57 by emda-sil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "../includes/push_swap.h"
+//imprime todas as operacoes e quantas vezes foram usadas
 void	print_moves(t_bench *bench)
 {
 	int	i;
 
 	i = 0;
-	ft_putstr_fd("[bench] ops: ", 2);
+	ft_putstr_fd("[bench] ops: ", 2);// o 2 significa que imprime no stderr (erro padrao)
 	while (i < 11)
 	{
 		ft_putstr_fd(move_name(i), 2);
@@ -16,7 +28,7 @@ void	print_moves(t_bench *bench)
 		i++;
 	}
 }
-
+//transforma a desordem em percentagem
 void	print_disorder_percent(double disorder)
 {
 	int	percent;
@@ -29,7 +41,7 @@ void	print_disorder_percent(double disorder)
 	ft_putnbr_fd(percent % 100, 2);
 	ft_putchar_fd('%', 2);
 }
-
+//print bench funcao principal
 void	print_bench(t_bench *bench)
 {
 	if (!bench || !bench->display)
