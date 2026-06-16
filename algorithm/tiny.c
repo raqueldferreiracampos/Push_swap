@@ -2,7 +2,7 @@
 
 void	sort_two(t_bench *bench, t_stack **a)
 {
-	if (!a || !*a || stack_size(*a)!= 2)
+	if (!a || !*a || stack_size(*a) != 2)
 		return ;
 	if ((*a)->value > (*a)->next->value)
 		swap_sa(bench, a);
@@ -19,14 +19,22 @@ void	sort_three(t_bench *bench, t_stack **a)
 	a1 = (*a)->value;
 	a2 = (*a)->next->value;
 	a3 = (*a)->next->next->value;
-	if (a1 > a3 && a3 > a2)
+	if (a1 > a2 && a2 < a3 && a1 < a3)
+		swap_sa(bench, a);
+	else if (a1 > a2 && a2 > a3)
+	{
+		swap_sa(bench, a);
 		rev_rra(bench, a);
-	else if (a2 > a1 && a1 > a3)
+	}
+	else if (a1 > a2 && a2 < a3 && a1 > a3)
 		rotate_ra(bench, a);
-	else if (a2 > a3)
+	else if (a1 < a2 && a2 > a3 && a1 < a3)
+	{
 		swap_sa(bench, a);
-	if ((*a)->value > (*a)->next->value)
-		swap_sa(bench, a);
+		rotate_ra(bench, a);
+	}
+	else if (a1 < a2 && a2 > a3 && a1 > a3)
+		rev_rra(bench, a);
 }
 
 void	sort_four(t_bench *bench, t_stack **a, t_stack **b)
