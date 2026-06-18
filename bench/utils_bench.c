@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-//soma todas as operacoes realizadas
+
 int	bench_moves(t_bench *bench)
 {
 	int	i;
@@ -54,7 +54,7 @@ char	*strategy_complexity(t_bench *bench)
 		return ("O(n log n)");
 	return ("Adaptive");
 }
-//Converter índice do array moves para "sa", "pb", "rr" etc.
+
 char	*move_name(int move)
 {
 	if (move == 0)

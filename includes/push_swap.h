@@ -16,13 +16,12 @@
 # include "../libft/libft.h"
 # include <limits.h>
 
-//Cria estrutura de nodes
 typedef struct s_stack
 {
 	int				value;
 	struct s_stack	*next;
 }	t_stack;
-//Conjunto de constantes nomeadas
+
 typedef enum e_strategy
 {
 	STRAT_SIMPLE,
@@ -30,22 +29,22 @@ typedef enum e_strategy
 	STRAT_COMPLEX,
 	STRAT_ADAPTIVE
 }	t_strategy;
-//Cria uma estrutura que armazena informacoes relacionadas ao teste de desempenho
+
 typedef struct s_bench
 {
-	int			display;//1 mostra 0 nao mostra
-	double		disorder;//grau de desorganizacao
-	t_strategy	strategy;//guarda o alguritmo escolhido
-	t_strategy	used_strategy;//estrategia que realmente foi usada
-	int			numbers_count;//quantidade de numeros recebidos
-	int			moves[11];// array para contar as operacoes
+	int			display;
+	double		disorder;
+	t_strategy	strategy;
+	t_strategy	used_strategy;
+	int			numbers_count;
+	int			moves[11];
 }	t_bench;
-//Cria uma estrutura
+
 typedef struct s_radix
 {
-	int	*arr; //ponteiro para um array de ponteiros
-	int	size; //tamanho do array
-	int	bit;//bit atual que esta a ser atanisado
+	int	*arr;
+	int	size;
+	int	bit;
 }	t_radix;
 
 typedef enum e_moves
