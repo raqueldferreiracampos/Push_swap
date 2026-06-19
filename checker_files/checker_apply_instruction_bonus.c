@@ -11,10 +11,14 @@
 /* ************************************************************************** */
 
 #include "../includes/checker_bonus.h"
+//	checker_apply_instruction()
+
+//	Esta função recebe uma instrução lida pelo checker
+//	e executa a operação correspondente nas stacks A e B.
 
 int	checker_apply_instruction(char *instruction, t_stack **a, t_stack **b)
 {
-	if (ft_strncmp(instruction, "sa\n", 3) == 0)
+	if (ft_strncmp(instruction, "sa\n", 3) == 0) //Se a string instruction for igual a "sa\n" então executa o bloco do if.
 		swap(a);
 	else if (ft_strncmp(instruction, "sb\n", 3) == 0)
 		swap(b);
